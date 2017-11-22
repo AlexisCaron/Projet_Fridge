@@ -1,115 +1,156 @@
 package view;
 
-import javax.swing.*;
-import java.awt.*;
-import javafx.scene.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.util.Observable;
+import java.util.Observer;
 
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
+import model.model;
 
-
-public class view {
-
+public class view extends JFrame implements Observer{
+ 
+	JPanel background1;	
+	JPanel background2;	
+	JButton button1;
+	JComboBox<String> temperature;
+	JLabel temperatureInterieur, humidite, temperatureExterieur,temperatureModule;
+	JLabel TemperatureVoulue;
 	
 
-	private graph graphique; 
-	private JFrame frame;
-	private JPanel background1;
-	private JPanel background2;
-	private JButton boutton1;
-	private JButton boutton2;
-	private JComboBox temp;
-	private JLabel tempLabel;
-	private JPanel tempPanel;
+	
+	public JPanel getBackground1() {
+		return background1;
+	}
+	public JLabel getTemperatureInterieur() {
+		return temperatureInterieur;
+	}
+	public void setTemperatureInterieur(JLabel temperatureInterieur) {
+		this.temperatureInterieur = temperatureInterieur;
+	}
+	public JLabel getHumidite() {
+		return humidite;
+	}
+	public void setHumidite(JLabel humidite) {
+		this.humidite = humidite;
+	}
+	public JLabel getTemperatureExterieur() {
+		return temperatureExterieur;
+	}
+	public void setTemperatureExterieur(JLabel temperatureExterieur) {
+		this.temperatureExterieur = temperatureExterieur;
+	}
+	public JLabel getTemperatureVoulue() {
+		return TemperatureVoulue;
+	}
+	public void setTemperatureVoulue(JLabel temperatureVoulue) {
+		TemperatureVoulue = temperatureVoulue;
+	}
+	public void setTemperature(JComboBox<String> temperature) {
+		this.temperature = temperature;
+	}
+	public void setTemperatureModule(JLabel temperatureModule) {
+		this.temperatureModule = temperatureModule;
+	}
+	public JPanel getBackground2() {
+		return background2;
+	}
+	
+	public JLabel getTemperatureModule() {
+		return temperatureModule;
+	}
 
-
+	public JLabel gettemperatureInterieur() {
+		return temperatureInterieur;
+	}
+	public JLabel gethumidite() {
+		return humidite;
+	}
+	public JLabel gettemperatureExterieur() {
+		return temperatureExterieur;
+	}
+	public JLabel gettemperatureModule() {
+		return temperatureModule;
+	}
+	public JComboBox getTemperature() {
+		return temperature;
+	}
 	
-	
-	
-	
-	public view()
-	{
-		graphique  = new graph();
-		//frame = new JFrame("Gestion du mini frigo");
-		this.frame = initFrame(); 
-	    this.background1 = initBackground(this.frame);
-	    this.graphique = (graph) initGraph(this.frame);
-	    this.boutton1 = initButton(this.background1,"Yes");
-	    this.boutton2 = initButton(this.background1,"No");
-	    initTemperature(this.background1);
-	    //graphique.setPreferredSize(new Dimension(220, 60));
-	    //this.frame.add(graphique,BorderLayout.WEST);
-	    graphique.repaint();
+	public JButton getButton() {
+		return button1;
 	}
 	
 	
-	
-	
-	private JFrame initFrame()
-	{
-		JFrame frame = new JFrame("Gestion du mini frigo");
-		frame.setVisible(true);
-	    frame.setSize(800, 600);
-	    frame.setLocationRelativeTo(null);
-	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);     
-	    frame.setResizable(true);
-	    return frame;
-	}
-	
-	private JPanel initGraph(JFrame frame)
-	{
-		graph panel = new graph();
-		panel.setPreferredSize(new Dimension(220, 60));
-		panel.setBackground(Color.BLUE);
-		frame.add(panel, BorderLayout.WEST);
-		return panel;
-	}
-	
-	private JPanel initBackground(JFrame frame)
-	{
-		JPanel panel = new JPanel();
-		panel.setPreferredSize(new Dimension(220, 60));
-		panel.setBackground(Color.gray);
-		frame.add(panel, BorderLayout.EAST);
-		return panel;
-	}
-	
-
-	
-	private void initTemperature(JPanel panel)
-	{
+	public void init(){
 		
-	    //panel.setBorder(BorderFactory.createTitledBorder("Température du frigo").s);
-	    this.temp = new JComboBox();	   
-	    for(int i = 5 ; i < 21 ; i++) temp.addItem(i);
-	    this.tempLabel = new JLabel("Température : ");
-	    panel.add(tempLabel);
-	    panel.add(temp);
-	    frame.setContentPane(panel);
-	    System.out.println("tempéature : " + temp.getSelectedItem());
-	   
-	}
-	
-	private JButton initButton(JPanel panel, String text)
-	{
-		JButton boutton = new JButton(text);
-		panel.add(boutton);
-		return boutton;
-	}
-	
-	public void paint(Graphics g) 
-	{
-		g.drawLine(0, 0, 100, 100);
-		g.drawLine(0, 100, 100, 0);
-		g.drawLine(40, 25, 250, 180);
-		g.drawLine(75, 90, 400, 400);
-		g.drawLine(20, 150, 400, 40); //line
-		g.drawLine(5, 290, 80, 19); //line
-		g.drawLine (5, 75, 5, 75); // point
-		g.drawLine (50, 5, 50, 5); // point
-	}
-	
-	
+		this.setTitle("PimpMyFridge");
+		this.setLayout(null);
+		this.setVisible(true);
+		this.setSize(1000,500);
+		
 
-
+		background1 = new JPanel ();
+		background2 = new JPanel ();
+		
+		button1 = new JButton ("Envoyer");
+		
+	
+		temperatureInterieur = new JLabel ("Temperature Interieur: ");		
+		humidite = new JLabel ("Humidité: ");
+		temperatureExterieur = new JLabel ("Temperature Exterieur: ");
+		temperatureModule = new JLabel ("Temperature Module : ");
+				
+		
+		
+		background1.setVisible(true);
+		background2.setVisible(true);
+	
+		background1.setBounds(0,0, 300, 260);	
+		background1.setBackground(Color.RED);
+		background2.setBackground(Color.BLUE);
+		
+		background1.add(temperatureInterieur);
+		background1.add(temperatureExterieur);
+		background1.add(humidite);
+	
+		this.add(background1);
+		this.add(background2);
+		
+		background2.setBounds(0,200, 300, 250);
+		
+		
+		this.TemperatureVoulue = new JLabel("Température voulue : ");
+		
+	    background2.add(TemperatureVoulue);
+	    background2.add(button1);
 	    
+		//this.temperature = new JComboBox<String>();	   
+	    	
+	    //temperature.addItem("bonjour");
+	    
+	   // background2.add(temperature);	    	    
+	  			
+	}
+	
+	@Override
+	public void update(Observable arg0, Object arg1) {		
+	model m = (model) arg1;	
+	this.temperatureInterieur.setText(m.getTempInt());
+	this.humidite.setText(m.getHum());
+	this.temperatureExterieur.setText(m.getTempExt());
+	this.temperatureModule.setText(m.getTempMod());
+	System.out.println("ggggggggggggggggggggggggggggggggggggggggggg");
+	}
+	
+	
 }
