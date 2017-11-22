@@ -81,6 +81,7 @@ public model()
 
 	public void setTempRos(String tempRos) {
 		this.tempRos = tempRos;
+		System.out.println(tempRos);
 
 	}
 
@@ -92,6 +93,7 @@ public model()
 
 	public void setHum(String hum) {
 		this.hum = hum;
+		System.out.println(hum);
 
 	}
 	

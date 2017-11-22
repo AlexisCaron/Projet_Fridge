@@ -126,7 +126,7 @@ private model model;
 				if (input.ready()) 
 				{
 					inputLine = input.readLine();
-					System.out.println("inputline : " + inputLine);
+					//System.out.println("inputline : " + inputLine);
 					String[] tp = inputLine.split(":");
 					//System.out.println("tp0 : " + tp[0]);
 					if(tp[0].contains("#tempExt"))
@@ -155,7 +155,8 @@ private model model;
 					//String [] chunks = inputLine.split(",");
 					//System.out.println(inputLine);
 					//System.out.println(chunks[0] + "\t" + chunks[1] + "\t" + chunks[2] + "\t");	
-				this.notifyObservers(this.model);	
+				setChanged();
+				notifyObservers(this.model);	
 				}
 
 			} 

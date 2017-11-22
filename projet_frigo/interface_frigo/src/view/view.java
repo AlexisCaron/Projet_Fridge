@@ -145,11 +145,11 @@ public class view extends JFrame implements Observer{
 	@Override
 	public void update(Observable arg0, Object arg1) {		
 	model m = (model) arg1;	
-	this.temperatureInterieur.setText(m.getTempInt());
-	this.humidite.setText(m.getHum());
-	this.temperatureExterieur.setText(m.getTempExt());
-	this.temperatureModule.setText(m.getTempMod());
-	System.out.println("ggggggggggggggggggggggggggggggggggggggggggg");
+	this.temperatureInterieur.setText("Température intérieur : " + m.getTempInt());
+	this.humidite.setText("Humidité : " + m.getHum());
+	this.temperatureExterieur.setText("Température extérieur : " +m.getTempExt());
+	this.temperatureModule.setText("Température Module : " +m.getTempMod());
+	
 	}
 	
 	
