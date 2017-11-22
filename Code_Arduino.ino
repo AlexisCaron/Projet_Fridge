@@ -85,16 +85,18 @@ void loop(){
 
      peltier_level = map(power, 0, 99, 0, 255);
   }
-                Serial.println("Power = " + power);
-                Serial.println("PLevel = " + peltier_level);
+                Serial.print("Power = ");
+                Serial.print (power);
+                Serial.print(" PLevel = ");
+                Serial.println(peltier_level);
                 analogWrite(peltier, peltier_level);
-                Serial.println("Humidite : " + String(h));
-                Serial.println("Temperature du frigo : " + String(t) + " c");
+                Serial.println("Humidite : " + String(h) + "%");
+                Serial.println("Temperature du frigo : " + String(t) + " *C");
 
                 Serial.println("Temperature exterieure : " + String(celsius0));
-               // Serial.print("Ohm  -  T = ");
-                Serial.println("\n Temperature du module : " + String(celsius1));
-              //  Serial.print("Ohm  -  T = ");
+              
+                Serial.println("Temperature du module : " + String(celsius1));
+
                 Serial.println("Rosee : " + String(Rosee));
         
         delay(1000);
