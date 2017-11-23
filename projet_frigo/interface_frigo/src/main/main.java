@@ -1,10 +1,13 @@
 package main;
+import view.graphTemp;
 import view.view;
 
 
 import model.*;
 
 import java.util.Observer;
+
+import org.jfree.ui.RefineryUtilities;
 
 import controller.controller;
 
@@ -23,6 +26,13 @@ public class main {
 		view.getButton().addActionListener(c);
 		
 		m.serial.addObserver(view);
+		
+		/*
+        final graphTemp demo = new graphTemp("Line Chart Demo 6",m);
+        demo.pack();
+        RefineryUtilities.centerFrameOnScreen(demo);
+        demo.setVisible(true);
+        */
 		//model.addObserver(view.getLabel2());
 		//model.addObserver(view.getLabel3());
 

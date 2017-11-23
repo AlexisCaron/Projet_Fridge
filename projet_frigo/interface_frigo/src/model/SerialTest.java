@@ -129,27 +129,25 @@ private model model;
 					//System.out.println("inputline : " + inputLine);
 					String[] tp = inputLine.split(":");
 					//System.out.println("tp0 : " + tp[0]);
-					if(tp[0].contains("#tempExt"))
-					{
-						model.setTempExt(tp[1]);
-					}
-					else if(tp[0].contains("#tempInt"))
-					{
+						model.setTempExt( tp[0]);
+						//System.out.println(model.listetempExt.get(model.listetempExt.size()-1));
 						model.setTempInt(tp[1]);
-					}
-					else if(tp[0].contains("#tempMod"))
-					{
-						model.setTempMod(tp[1]);
-					}
-					else if(tp[0].contains("#tempRos"))
-					{
-						model.setTempRos(tp[1]);
-					}
-					else if(tp[0].contains("#Hum"))
-					{
-						model.setHum(tp[1]);
-					}
+						model.setTempMod(tp[2]);
+						model.setTempRos(tp[3]);
+						model.setHum(tp[4]);
+						
+						
+						/*
+						if(model.listetempExt.size() == 31)
+						{
+							model.listetempExt.remove(30);
+							model.listetempInt.remove(30);
+							model.listetempMod.remove(30);
+							model.listetempRos.remove(30);
+							model.listehum.remove(30);
+						}
 					
+					*/
 					//System.out.println("temperature : " + this.temperature);
 					//System.out.println("exterieur : " + this.exterieur);
 					//String [] chunks = inputLine.split(",");

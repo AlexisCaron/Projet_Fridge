@@ -1,10 +1,13 @@
 package model;
 
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
 public class model extends Observable{
 
-	public SerialTest serial;
+	public SerialTest serial;	
 	
 	private String tempExt;
 	private String tempInt;
@@ -12,6 +15,11 @@ public class model extends Observable{
 	private String tempRos;
 	private String hum;
 	
+	public List<String> listetempExt; //= new ArrayList<String>();
+	public List<String> listetempInt;
+	public List<String> listetempMod;
+	public List<String> listetempRos;
+	public List<String> listehum;
 
 
 
@@ -19,9 +27,39 @@ public model()
 {
 	
 	this.serial = startcom2();
+	this.listetempExt = new ArrayList<String>();
+	this.listetempInt = new ArrayList<String>();
+	this.listetempMod = new ArrayList<String>();
+	this.listetempRos = new ArrayList<String>();
+	this.listehum = new ArrayList<String>();
 	//testEnvoie(this.main);
 }
     	   	 
+
+	public List<String> getListetempExt() {
+	return listetempExt;
+}
+
+
+public List<String> getListetempInt() {
+	return listetempInt;
+}
+
+
+public List<String> getListetempMod() {
+	return listetempMod;
+}
+
+
+public List<String> getListetempRos() {
+	return listetempRos;
+}
+
+
+public List<String> getListehum() {
+	return listehum;
+}
+
 
 	private SerialTest startcom2()
 	{
@@ -35,6 +73,9 @@ public model()
 		return main;
 	}
 	
+	
+	
+	
 		
    
 	//acesseur
@@ -42,6 +83,8 @@ public model()
 	public String getTempExt() {
 		return tempExt;
 	}
+	
+	
 
 
 	public void setTempExt(String tempExt) {

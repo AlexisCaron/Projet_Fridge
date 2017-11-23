@@ -21,7 +21,8 @@ import model.model;
 public class view extends JFrame implements Observer{
  
 	JPanel background1;	
-	JPanel background2;	
+	JPanel background2;
+	graph background3;	
 	JButton button1;
 	JComboBox<String> temperature;
 	JLabel temperatureInterieur, humidite, temperatureExterieur,temperatureModule;
@@ -101,6 +102,7 @@ public class view extends JFrame implements Observer{
 
 		background1 = new JPanel ();
 		background2 = new JPanel ();
+		background3 = new graph();
 		
 		button1 = new JButton ("Envoyer");
 		
@@ -110,12 +112,14 @@ public class view extends JFrame implements Observer{
 		temperatureExterieur = new JLabel ("Temperature Exterieur: ");
 		temperatureModule = new JLabel ("Temperature Module : ");
 				
-		
+
 		
 		background1.setVisible(true);
 		background2.setVisible(true);
+		background3.setVisible(true);
 	
 		background1.setBounds(0,0, 300, 260);	
+		background3.setBounds(300,0, 1000, 500);	
 		background1.setBackground(Color.RED);
 		background2.setBackground(Color.BLUE);
 		
@@ -125,6 +129,7 @@ public class view extends JFrame implements Observer{
 	
 		this.add(background1);
 		this.add(background2);
+		this.add(background3);
 		
 		background2.setBounds(0,200, 300, 250);
 		
@@ -147,9 +152,9 @@ public class view extends JFrame implements Observer{
 	model m = (model) arg1;	
 	this.temperatureInterieur.setText("Température intérieur : " + m.getTempInt());
 	this.humidite.setText("Humidité : " + m.getHum());
-	this.temperatureExterieur.setText("Température extérieur : " +m.getTempExt());
-	this.temperatureModule.setText("Température Module : " +m.getTempMod());
-	
+	this.temperatureExterieur.setText("Température extérieur : " + m.getTempExt());
+	this.temperatureModule.setText("Température Module : " + m.getTempMod());
+	this.background3.updateGraph(m);
 	}
 	
 	
