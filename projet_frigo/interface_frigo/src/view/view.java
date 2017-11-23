@@ -180,22 +180,22 @@ public class view extends JFrame implements Observer{
 	
 	private void checkCond(double d)
 	{
-		if(d > 50)
+		if(d > 80)
 		{
 			 JOptionPane jop1;
 			    jop1 = new JOptionPane();
-			    ImageIcon img = new ImageIcon("alerte.png");
+			    ImageIcon img = new ImageIcon("view/alerte.png");
 			    jop1.showMessageDialog(null, "Détection de condensation.", "Attention", JOptionPane.WARNING_MESSAGE, img);
 		}
 	}
 	
 	private void checkTemp(double d)
 	{
-		if(d > 21)
+		if(d > 26)
 		{
 			 JOptionPane jop1;
 			    jop1 = new JOptionPane();
-			    ImageIcon img = new ImageIcon("alerte.png");
+			    ImageIcon img = new ImageIcon("view/alerte.png");
 			    jop1.showMessageDialog(null, "Attention la porte est potentiellement ouverte.", "Attention", JOptionPane.WARNING_MESSAGE, img);
 		}
 	}
