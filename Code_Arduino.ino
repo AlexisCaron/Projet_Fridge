@@ -88,19 +88,12 @@ void loop(){
   }
 
 
-                Serial.print("Power = ");
-                Serial.print (power);
-                Serial.print(" PLevel = ");
-                Serial.println(peltier_level);
-                analogWrite(peltier, peltier_level);
-                Serial.println("Humidite : " + String(h) + "%");
-                Serial.println("Temperature du frigo : " + String(t) + " *C");
-
-                Serial.println("Temperature exterieure : " + String(celsius0));
-              
-                Serial.println("Temperature du module : " + String(celsius1));
-
-                Serial.println("Rosee : " + String(Rosee));
+                //Serial.print("Power = ");
+                //Serial.print (power);
+                //Serial.print(" PLevel = ");
+                //Serial.println(peltier_level);
+                analogWrite(peltier, peltier_level);  
+                Serial.println(String(celsius0) +":"+ String(t) +":"+ String(celsius1) +":"+ String(Rosee) +":"+ String(h));
 
  if (t > 18.00){
     power = 99;
