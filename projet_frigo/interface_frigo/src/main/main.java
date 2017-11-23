@@ -1,16 +1,10 @@
 package main;
-import view.graphTemp;
 import view.view;
 
-
 import model.*;
-
 import java.util.Observer;
-
 import org.jfree.ui.RefineryUtilities;
-
 import controller.controller;
-
 public class main {
 	
 	

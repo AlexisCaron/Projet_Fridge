@@ -14,7 +14,7 @@ public class SerialTest extends Observable implements SerialPortEventListener {
 
 SerialPort serialPort;
 /** The port we’re normally going to use. */
-private String PORT_NAMES[] = {"COM3"};
+private String PORT_NAMES[] = {"COM7"};
 
 private BufferedReader input;
 private OutputStream output;
