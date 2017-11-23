@@ -36,6 +36,7 @@ double SteinhartHart(double R)
 void setup(){
     Serial.begin(9600);
     dht.begin();
+
 }
 
 void loop(){
@@ -69,7 +70,7 @@ void loop(){
   double kelvin1 = SteinhartHart(Rth1);
   double celsius1 = kelvin1 - 273.15;
 
-  float K = (237.7 * t ) / ((17.7 + t) + log(h));
+  float K = ((17.27 * t ) / ((237.7 + t)) + (log(h)*0.01));
   float Rosee = (237.7 * K) / (17.7 - K);
         
         if(Serial.available() > 0)
@@ -99,6 +100,6 @@ void loop(){
 
                 Serial.println("Rosee : " + String(Rosee));
         
-        delay(1000);
+        delay(500);
 }
 
