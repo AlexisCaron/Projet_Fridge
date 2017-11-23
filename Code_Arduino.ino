@@ -86,6 +86,8 @@ void loop(){
 
      peltier_level = map(power, 0, 99, 0, 255);
   }
+
+
                 Serial.print("Power = ");
                 Serial.print (power);
                 Serial.print(" PLevel = ");
@@ -99,6 +101,17 @@ void loop(){
                 Serial.println("Temperature du module : " + String(celsius1));
 
                 Serial.println("Rosee : " + String(Rosee));
+
+ if (t > 18.00){
+    power = 99;
+    peltier_level = 255;
+  }
+  
+  if (t < 18.00) {
+    power = 5;
+    peltier_level = 4;
+  }
+
         
         delay(500);
 }
